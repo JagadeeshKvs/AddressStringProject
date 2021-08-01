@@ -14,6 +14,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestController
 public class AddressPatternExceptionHandler extends ResponseEntityExceptionHandler {
 
+	/**
+	 * Returns address pattern exception response
+	 */
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
 		AddressPatternException exception = new AddressPatternException(new Date(), ex.getMessage(),request.getDescription(false));

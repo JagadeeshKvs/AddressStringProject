@@ -50,6 +50,9 @@ public class AddressControllerTest {
 		JSONAssert.assertEquals(expected, resultString, false);
 	}
 
+	/**
+	 * Create a Map of request and response strings
+	 */
 	private Map<String, String> createRequestResponse() {
 		Map<String, String> requestAndResponse = new HashMap<String, String>();
 		requestAndResponse.put("{\"address\": \"200 Broadway\"}",

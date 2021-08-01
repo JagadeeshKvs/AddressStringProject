@@ -19,6 +19,9 @@ public class AddressController {
 	@Autowired
 	private AddressResponseService addressService;
 
+	/**
+	 * Returns final address response
+	 */
 	@PostMapping("/address")
 	public ResponseEntity<Object> getAddressDetails(@RequestBody AddressDTO address) throws Exception{
 		logger.info("Call to get House Number and Street for address: {}", address.getAddress());
