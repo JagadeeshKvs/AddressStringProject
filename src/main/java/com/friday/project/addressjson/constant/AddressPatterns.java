@@ -22,6 +22,9 @@ public final class AddressPatterns {
 
 	}
 
+	/**
+	 * Adds all the Address patterns above and returns hash map 
+	 */
 	public HashMap<Integer, Pattern> loadAddressPatterns() {
 		Integer id = 1;
 		for (Patterns pattern : Patterns.values()) {
