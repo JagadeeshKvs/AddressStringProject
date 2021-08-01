@@ -57,12 +57,21 @@ public class AddressControllerTest {
 
 		requestAndResponse.put("{\"address\": \"Broadway Av 200b\"}",
 				"{\"street\": \"Broadway Av\", \"houseNumber\": \"200b\"}");
-
+		
+		requestAndResponse.put("{\"address\": \"200 Broadway 300\"}",
+				"{\"street\": \"Broadway 300\", \"houseNumber\": \"200\"}");
+		
 		requestAndResponse.put("{\"address\": \"Chillies 39 no 45\"}",
 				"{\"street\": \"Chillies 39\", \"houseNumber\": \"no 45\"}");
+		
+		requestAndResponse.put("{\"address\": \"Chillies 39 45 c\"}",
+				"{\"street\": \"Chillies 39\", \"houseNumber\": \"45 c\"}");
 
-		requestAndResponse.put("{\"address\": \"Aug ter Vokslae 34\"}",
-				"{\"street\": \"Aug ter Vokslae\", \"houseNumber\": \"34\"}");
+		requestAndResponse.put("{\"address\": \"Auf der Vogelweise 34\"}",
+				"{\"street\": \"Auf der Vogelweise\", \"houseNumber\": \"34\"}");
+		
+		requestAndResponse.put("{\"address\": \"Auf der Vogelweise 34 b\"}",
+				"{\"street\": \"Auf der Vogelweise\", \"houseNumber\": \"34 b\"}");
 
 		return requestAndResponse;
 	}
