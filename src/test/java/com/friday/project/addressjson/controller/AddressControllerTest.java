@@ -2,6 +2,7 @@ package com.friday.project.addressjson.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +46,7 @@ public class AddressControllerTest {
 		MockHttpServletResponse responseValue = result.getResponse();
 		String expected = expectedValue;
 
-		String resultString = responseValue.getContentAsString();
+		String resultString = responseValue.getContentAsString(StandardCharsets.UTF_8);
 		assertNotNull(resultString);
 		JSONAssert.assertEquals(expected, resultString, false);
 	}
@@ -64,14 +65,23 @@ public class AddressControllerTest {
 		requestAndResponse.put("{\"address\": \"200 Broadway 300\"}",
 				"{\"street\": \"Broadway 300\", \"houseNumber\": \"200\"}");
 		
-		requestAndResponse.put("{\"address\": \"Chillies 39 no 45\"}",
-				"{\"street\": \"Chillies 39\", \"houseNumber\": \"no 45\"}");
+		requestAndResponse.put("{\"address\": \"Calle 39 No 45\"}",
+				"{\"street\": \"Calle 39\", \"houseNumber\": \"No 45\"}");
+		
+		requestAndResponse.put("{\"address\": \"Calle Aduana, 29\"}",
+				"{\"street\": \"Calle Aduana\", \"houseNumber\": \"29\"}");
+		
+		requestAndResponse.put("{\"address\": \"4, rue de la revolution\"}",
+				"{\"street\": \"rue de la revolution\", \"houseNumber\": \"4\"}");
 		
 		requestAndResponse.put("{\"address\": \"Chillies 39 45 c\"}",
 				"{\"street\": \"Chillies 39\", \"houseNumber\": \"45 c\"}");
 
 		requestAndResponse.put("{\"address\": \"Auf der Vogelweise 34\"}",
 				"{\"street\": \"Auf der Vogelweise\", \"houseNumber\": \"34\"}");
+		
+		requestAndResponse.put("{\"address\": \"Am Bächle 23\"}",
+				"{\"street\": \"Am Bächle\", \"houseNumber\": \"23\"}");
 		
 		requestAndResponse.put("{\"address\": \"Auf der Vogelweise 34 b\"}",
 				"{\"street\": \"Auf der Vogelweise\", \"houseNumber\": \"34 b\"}");
